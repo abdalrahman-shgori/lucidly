@@ -42,7 +42,7 @@ function Second(props: any): JSX.Element {
             >
                 <Box>
                     <Text
-                        fontSize="28px"
+                        fontSize={["20px","28px"]}
                         fontFamily="Montserrat"
                         color="#434E61"
                         fontWeight="bold"
