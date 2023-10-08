@@ -24,14 +24,14 @@ import { useToast } from '@chakra-ui/react'
 function Third(props: any): JSX.Element {
 
     const img = [
-        { id: "0", img: innovation, text: "meicie" },
-        { id: "1", img: education, text: "meicie" },
-        { id: "2", img: medicine, text: "meicie" },
-        { id: "3", img: pharamtech, text: "meicie" },
-        { id: "4", img: technology, text: "meicie" },
-        { id: "5", img: tele, text: "meicie" },
-        { id: "6", img: relax, text: "meicie" },
-        { id: "7", img: research, text: "meicie" },
+        { id: "0", img: innovation, text: "Innovation" },
+        { id: "1", img: education, text: "Education" },
+        { id: "2", img: medicine, text: "Midicine" },
+        { id: "3", img: pharamtech, text: "Pharmatech" },
+        { id: "4", img: technology, text: "Technology" },
+        { id: "5", img: tele, text: "Telemedicene" },
+        { id: "6", img: relax, text: "Lorem Ipusm" },
+        { id: "7", img: research, text: "Research" },
 
     ]
     const toast = useToast()
