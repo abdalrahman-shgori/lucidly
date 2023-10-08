@@ -69,10 +69,7 @@ function Sumbitted(props: any): JSX.Element {
                     display="flex"
                     justifyContent="center"
                     alignItems="center"
-
-
                     colorScheme="custom"
-
                 >
                     Close
                 </Button>

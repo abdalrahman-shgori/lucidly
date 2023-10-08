@@ -81,7 +81,7 @@ function CustomModal(): JSX.Element {
   const handlerNext = (): void => {
     if (recoilState.name === "" && value === 0) {
       toast({
-        title: "please Select Name",
+        title: "Please inter your Name",
         status: "error",
         position: "top-right"
       })
