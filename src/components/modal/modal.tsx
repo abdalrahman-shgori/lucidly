@@ -17,9 +17,9 @@ import { CheckIcon, CloseIcon } from "@chakra-ui/icons";
 import { useRecoilState } from 'recoil';
 import { myState } from '../../mystate';
 import { useToast } from '@chakra-ui/react'
-import Third from "./third";
+import Third from "./interest";
 import Sumbitted from "./submitted";
-import Second from "./second";
+import Second from "./languageCountry";
 function CustomModal(): JSX.Element {
 
   function EditableControls(): JSX.Element {
@@ -34,18 +34,17 @@ function CustomModal(): JSX.Element {
       <ButtonGroup justifyContent='center' size='sm'>
         <IconButton
           icon={<CheckIcon />}
-          aria-label="Submit" // Provide an appropriate label here
+          aria-label="Submit"
           {...getSubmitButtonProps()}
         />
         <IconButton
           icon={<CloseIcon />}
-          aria-label="Cancel" // Provide an appropriate label here
+          aria-label="Cancel"
           {...getCancelButtonProps()}
         />
       </ButtonGroup>
     ) : (
       <Flex cursor="pointer" justifyContent='end' position="absolute" top="36%" right="10%">
-        {/* <IconButton size='sm' icon={Pen} {...getEditButtonProps()} /> */}
         <img src={Pen} {...getEditButtonProps()}></img>
       </Flex>
     )
@@ -225,18 +224,11 @@ function CustomModal(): JSX.Element {
                     justifyContent="center"
                     position="relative"
                     onChange={handleNameChange}
-
-
                   >
-
                     <EditablePreview />
-
                     <Input as={EditableInput} />
                     <EditableControls />
-
                   </Editable>
-
-
                 </Box>
                 <Text
                   width="70%"
@@ -248,9 +240,7 @@ function CustomModal(): JSX.Element {
                 >
                   Your answers to the next few questions will help us find the right communities for you
                 </Text>
-
                 <Button
-
                   onClick={handlerNext}
                   fontSize="14px"
                   width="244px"
@@ -263,8 +253,6 @@ function CustomModal(): JSX.Element {
                   Next
                 </Button>
               </ModalBody>
-
-
             </>
           )}
           {value === 1 && (

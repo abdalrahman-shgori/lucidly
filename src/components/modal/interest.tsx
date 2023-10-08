@@ -73,7 +73,7 @@ function Third(props: any): JSX.Element {
             <ModalHeader
                 marginTop="40px"
                 position="relative"
-                top={["10px","30px"]}
+                top={["10px", "30px"]}
             >
                 <Box>
                     <Text
@@ -117,7 +117,7 @@ function Third(props: any): JSX.Element {
                                         ? "2px solid #FF8C1E"
                                         : "none",
                                     borderRadius: "8px",
-                                    cursor:"pointer"
+                                    cursor: "pointer"
                                 }}
                                 position="relative">
                                 <img src={item.img} alt={`Image ${index}`} />
@@ -133,7 +133,7 @@ function Third(props: any): JSX.Element {
                                 <Text
                                     position="absolute"
                                     bottom="4px"
-                                    left={["5px","10px"]}
+                                    left={["5px", "10px"]}
                                     color="#FFFFFF"
                                     fontSize="14px"
                                     fontFamily="montserrat"
@@ -146,46 +146,46 @@ function Third(props: any): JSX.Element {
 
             </ModalBody>
             <Box
-            position="relative"
+                position="relative"
             >
-            <Box
-                width="100%"
-                display="flex"
-                flexDirection="column"
-                justifyContent="center"
-                alignItems="center"
-                position="absolute"
-                bottom="-60px"
-
-            >
-                <Button
-                    onClick={Next}
-                    fontSize="14px"
-                    width="244px"
-                    height="41px"
-                    marginTop="20px"
+                <Box
+                    width="100%"
                     display="flex"
+                    flexDirection="column"
                     justifyContent="center"
                     alignItems="center"
-                    cursor={isPickButtonDisabled ? "not-allowed" : "pointer"}
-                    colorScheme={isPickButtonDisabled ? "disapled" : "custom"}
-                    disabled={isPickButtonDisabled}
+                    position="absolute"
+                    bottom="-60px"
 
                 >
-                    {isPickButtonDisabled ? "Pick 3 more" : "Submit"}
-                </Button>
-                <Button
-                    onClick={props.Back}
+                    <Button
+                        onClick={Next}
+                        fontSize="14px"
+                        width="244px"
+                        height="41px"
+                        marginTop="20px"
+                        display="flex"
+                        justifyContent="center"
+                        alignItems="center"
+                        cursor={isPickButtonDisabled ? "not-allowed" : "pointer"}
+                        colorScheme={isPickButtonDisabled ? "disapled" : "custom"}
+                        disabled={isPickButtonDisabled}
 
-                    background="transparent"
-                    fontSize="10px"
-                    fontFamily="Montserrat"
-                    _hover={{ background: 'transparent', color: 'inherit' }}
+                    >
+                        {isPickButtonDisabled ? "Pick 3 more" : "Submit"}
+                    </Button>
+                    <Button
+                        onClick={props.Back}
 
-                >
-                    Back
-                </Button>
-            </Box>
+                        background="transparent"
+                        fontSize="10px"
+                        fontFamily="Montserrat"
+                        _hover={{ background: 'transparent', color: 'inherit' }}
+
+                    >
+                        Back
+                    </Button>
+                </Box>
             </Box>
         </>
     )

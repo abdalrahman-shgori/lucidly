@@ -38,7 +38,7 @@ function Second(props: any): JSX.Element {
             >
                 <Box>
                     <Text
-                        fontSize={["20px","28px"]}
+                        fontSize={["20px", "28px"]}
                         fontFamily="Montserrat"
                         color="#434E61"
                         fontWeight="bold"
@@ -59,7 +59,7 @@ function Second(props: any): JSX.Element {
 
                     >
                         <Select
-                        cursor="pointer"
+                            cursor="pointer"
                             placeholder={recoilState.selectedLanguage === "" ? "Select Language" : recoilState.selectedLanguage}
                             background="#F6F6F6"
                             color="#B3B3B3"
@@ -73,7 +73,7 @@ function Second(props: any): JSX.Element {
                     <FormControl width={['100%', '80%']}
                     >
                         <Select
-                        cursor="pointer"
+                            cursor="pointer"
                             placeholder={recoilState.selectedCountry === "" ? "Select Country" : recoilState.selectedCountry}
                             background="#F6F6F6"
                             color="#B3B3B3"
@@ -91,49 +91,49 @@ function Second(props: any): JSX.Element {
                 justifyContent="center"
                 alignItems="center"
                 marginBottom="40px"
-            >               
+            >
             </ModalBody>
             <Box
-            position="relative"
-            > 
-            <Box
-                width="100%"
-                display="flex"
-                flexDirection="column"
-                justifyContent="center"
-                alignItems="center"
-                position="absolute"
-                bottom="-60px"
-
+                position="relative"
             >
-                <Button
-
-                    onClick={props.Next}
-                    fontSize="14px"
-                    width="244px"
-                    height="41px"
-                    marginTop="20px"
+                <Box
+                    width="100%"
                     display="flex"
+                    flexDirection="column"
                     justifyContent="center"
                     alignItems="center"
-
-
-                    colorScheme="custom"
-
-                >
-                    Next
-                </Button>
-                <Button
-                    onClick={props.Back}
-                    background="transparent"
-                    fontSize="10px"
-                    fontFamily="Montserrat"
-                    _hover={{ background: 'transparent', color: 'inherit' }} 
+                    position="absolute"
+                    bottom="-60px"
 
                 >
-                    Back
-                </Button>
-            </Box>
+                    <Button
+
+                        onClick={props.Next}
+                        fontSize="14px"
+                        width="244px"
+                        height="41px"
+                        marginTop="20px"
+                        display="flex"
+                        justifyContent="center"
+                        alignItems="center"
+
+
+                        colorScheme="custom"
+
+                    >
+                        Next
+                    </Button>
+                    <Button
+                        onClick={props.Back}
+                        background="transparent"
+                        fontSize="10px"
+                        fontFamily="Montserrat"
+                        _hover={{ background: 'transparent', color: 'inherit' }}
+
+                    >
+                        Back
+                    </Button>
+                </Box>
             </Box>
         </>
     )
