@@ -10,7 +10,6 @@ import {
   Box,
   Text,
   Flex,
-  EditableTextarea,
 } from '@chakra-ui/react';
 import Pen from "../../assets/images/PenIcon.svg"
 import { EditablePreview, IconButton, Input, useDisclosure, useEditableControls, ButtonGroup, SlideFade, Editable, Tooltip, EditableInput } from "@chakra-ui/react";
@@ -21,7 +20,6 @@ import { useToast } from '@chakra-ui/react'
 import Third from "./interest";
 import Sumbitted from "./submitted";
 import Second from "./languageCountry";
-import { editableInputTypes } from "@testing-library/user-event/dist/utils";
 function CustomModal(): JSX.Element {
   function EditableControls(): JSX.Element {
     const {
@@ -62,7 +60,7 @@ function CustomModal(): JSX.Element {
       name: newValue,
     }));
   };
- 
+
   const HandlerBack = (): void => {
     setValue((prevValue) => (prevValue - 1 + 3) % 3);
     setActiveIndices((prevActiveIndices) => {
@@ -126,13 +124,13 @@ function CustomModal(): JSX.Element {
   const handleModalClose = () => {
   };
 
-const EditNameAlert = (): void =>{
-  toast({
-    title:"Please tab on pen figure to edit the name",
-    position: "top-left"
+  const EditNameAlert = (): void => {
+    toast({
+      title: "Please tab on pen figure to edit the name",
+      position: "top-left"
 
-  })
-}
+    })
+  }
 
   const boxStyles = {
     background: "#434E61",
@@ -164,7 +162,7 @@ const EditNameAlert = (): void =>{
         <ModalContent
           position="absolute"
           minHeight={['512px', '612px']}
-          maxWidth={['80%', '600px']}
+          maxWidth={['80%', '80%', '600px']}
         >
           {value === 0 && (
             <>
@@ -239,13 +237,13 @@ const EditNameAlert = (): void =>{
                     position="relative"
                     onChange={handleNameChange}
                   >
-                    <EditablePreview onClick={EditNameAlert}/>
+                    <EditablePreview onClick={EditNameAlert} />
                     <Input as={EditableInput} />
                     <EditableControls />
                   </Editable>
                 </Box>
                 <Text
-                  width={["100%","50%"]}
+                  width={["100%", "50%"]}
                   fontSize="13px"
                   color="#262626"
                   fontFamily="Poppins"
@@ -262,8 +260,6 @@ const EditNameAlert = (): void =>{
                   width="244px"
                   height="41px"
                   marginTop="20px"
-
-
                   colorScheme="custom"
                 >
                   Next

@@ -73,7 +73,7 @@ function Third(props: any): JSX.Element {
             <ModalHeader
                 marginTop="40px"
                 position="relative"
-                top={["10px", "30px"]}
+                top={["10px", "20px","30px"]}
             >
                 <Box>
                     <Text
@@ -107,7 +107,7 @@ function Third(props: any): JSX.Element {
                     width={['100%', '100%']}
                     marginBottom="20px"
                 >
-                    <SimpleGrid columns={[3, 2, 4]} spacing={3}>
+                    <SimpleGrid columns={[3, 3, 4]} spacing={3}>
                         {img.map((item, index) => (
                             <GridItem
                                 key={item.id}
