@@ -57,7 +57,6 @@ function Third(props: any): JSX.Element {
     };
     const Next = (): void => {
         if (isPickButtonDisabled) {
-            alert("")
             toast({
                 title: "Select 3 or more ",
                 status: "error",
