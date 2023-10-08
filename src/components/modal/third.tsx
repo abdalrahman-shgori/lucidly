@@ -72,6 +72,8 @@ function Third(props: any): JSX.Element {
         <>
             <ModalHeader
                 marginTop="40px"
+                position="relative"
+                top={["10px","20px"]}
             >
                 <Box>
                     <Text
@@ -82,6 +84,7 @@ function Third(props: any): JSX.Element {
                         display="flex"
                         justifyContent="center"
                         align="center"
+                        lineHeight="30px"
                         textAlign="center"
                     >
                         Tell us what you’re <br /> interested in
@@ -93,6 +96,7 @@ function Third(props: any): JSX.Element {
                 flexDirection="column"
                 justifyContent="center"
                 alignItems="center"
+                marginBottom="20px"
             >
                 <Box
                     display="flex"
@@ -100,7 +104,8 @@ function Third(props: any): JSX.Element {
                     justifyContent="center"
                     alignItems="center"
                     gap="20px"
-                    width={['100%', '80%']}
+                    width={['100%', '100%']}
+                    marginBottom="20px"
                 >
                     <SimpleGrid columns={[3, 2, 4]} spacing={3}>
                         {img.map((item, index) => (
@@ -140,11 +145,16 @@ function Third(props: any): JSX.Element {
 
             </ModalBody>
             <Box
+            position="relative"
+            >
+            <Box
                 width="100%"
                 display="flex"
                 flexDirection="column"
                 justifyContent="center"
                 alignItems="center"
+                position="absolute"
+                bottom="-60px"
 
             >
                 <Button
@@ -174,6 +184,7 @@ function Third(props: any): JSX.Element {
                 >
                     Back
                 </Button>
+            </Box>
             </Box>
         </>
     )

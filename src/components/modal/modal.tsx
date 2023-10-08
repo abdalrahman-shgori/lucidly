@@ -309,6 +309,8 @@ function CustomModal(): JSX.Element {
                   width="5px"
                   borderRadius="50px"
                   marginLeft="10px"
+                  position="relative"
+                  right="4px"
                 />
               ))}
             </>

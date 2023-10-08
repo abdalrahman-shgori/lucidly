@@ -34,6 +34,11 @@ function Second(props: any): JSX.Element {
         <>
             <ModalHeader
                 marginTop="40px"
+                display="flex"
+                flexDirection="column"
+                justifyContent="center"
+                alignItems="center"
+                gap="60px"
             >
                 <Box>
                     <Text
@@ -46,20 +51,12 @@ function Second(props: any): JSX.Element {
                         Pick your language and<br /> country/region
                     </Text>
                 </Box>
-            </ModalHeader>
-            <ModalBody
-                display="flex"
-                flexDirection="column"
-                justifyContent="center"
-                alignItems="center"
-            >
-                {/* Add your modal content here */}
                 <Box
                     display="flex"
                     flexDirection="column"
                     justifyContent="center"
                     alignItems="center"
-                    gap="20px"
+                    gap="10px"
                     width={['100%', '80%']}
                 >
                     <FormControl width={['100%', '80%']}
@@ -89,14 +86,29 @@ function Second(props: any): JSX.Element {
                         </Select>
                     </FormControl>
                 </Box>
+            </ModalHeader>
+            <ModalBody
+                display="flex"
+                flexDirection="column"
+                justifyContent="center"
+                alignItems="center"
+                marginBottom="40px"
+            >
+                {/* Add your modal content here */}
+               
 
             </ModalBody>
+            <Box
+            position="relative"
+            > 
             <Box
                 width="100%"
                 display="flex"
                 flexDirection="column"
                 justifyContent="center"
                 alignItems="center"
+                position="absolute"
+                bottom="-60px"
 
             >
                 <Button
@@ -127,7 +139,7 @@ function Second(props: any): JSX.Element {
                     Back
                 </Button>
             </Box>
-
+            </Box>
         </>
     )
 }
