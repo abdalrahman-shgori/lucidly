@@ -163,7 +163,7 @@ function CustomModal(): JSX.Element {
         <ModalOverlay />
         <ModalContent
           position="absolute"
-          minHeight={['512px','612px']}
+          height={['512px','612px']}
           maxWidth={['80%', '600px']}
         >
           {value === 0 && (
