@@ -103,7 +103,7 @@ function Third(props: any): JSX.Element {
                     gap="20px"
                     width={['100%', '80%']}
                 >
-                    <SimpleGrid columns={[2, 2, 4]} spacing={4}>
+                    <SimpleGrid columns={[3, 2, 4]} spacing={4}>
                         {img.map((item, index) => (
                             <GridItem
                                 key={item.id}
