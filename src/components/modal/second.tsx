@@ -1,7 +1,4 @@
-import React, { useState } from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck } from '@fortawesome/free-solid-svg-icons';
-
+import React from "react";
 import {
     ModalHeader,
     ModalBody,
@@ -13,7 +10,6 @@ import {
 import {
     FormControl,
 } from '@chakra-ui/react'
-
 import { useRecoilState } from 'recoil';
 import { myState } from "../../mystate";
 function Second(props: any): JSX.Element {
@@ -63,6 +59,7 @@ function Second(props: any): JSX.Element {
 
                     >
                         <Select
+                        cursor="pointer"
                             placeholder={recoilState.selectedLanguage === "" ? "Select Language" : recoilState.selectedLanguage}
                             background="#F6F6F6"
                             color="#B3B3B3"
@@ -76,6 +73,7 @@ function Second(props: any): JSX.Element {
                     <FormControl width={['100%', '80%']}
                     >
                         <Select
+                        cursor="pointer"
                             placeholder={recoilState.selectedCountry === "" ? "Select Country" : recoilState.selectedCountry}
                             background="#F6F6F6"
                             color="#B3B3B3"
@@ -93,10 +91,7 @@ function Second(props: any): JSX.Element {
                 justifyContent="center"
                 alignItems="center"
                 marginBottom="40px"
-            >
-                {/* Add your modal content here */}
-               
-
+            >               
             </ModalBody>
             <Box
             position="relative"

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import {
@@ -8,22 +8,16 @@ import {
     Box,
     Text,
 } from '@chakra-ui/react';
-
-
 function Sumbitted(props: any): JSX.Element {
-
     return (
         <>
             <ModalHeader
-
                 display="flex"
                 justifyContent="center"
                 textAlign="center"
                 marginTop="20px"
             >
-                <Box
-
-                >
+                <Box>
                     <Box
                         border="1px solid #434E61"
                         borderRadius="50%"
@@ -37,8 +31,6 @@ function Sumbitted(props: any): JSX.Element {
                     >
                         <FontAwesomeIcon icon={faCheck} fade style={{ color: "#ff8c1e", fontSize: "100px" }} />
                     </Box>
-
-
                 </Box>
             </ModalHeader>
             <ModalBody
@@ -49,7 +41,7 @@ function Sumbitted(props: any): JSX.Element {
 
             >
                 <Text
-                    fontSize={["24px","28px"]}
+                    fontSize={["24px", "28px"]}
                     fontFamily="Montserrat"
                     color="#434E61"
                     fontWeight="bold"

@@ -73,7 +73,7 @@ function Third(props: any): JSX.Element {
             <ModalHeader
                 marginTop="40px"
                 position="relative"
-                top={["10px","20px"]}
+                top={["10px","30px"]}
             >
                 <Box>
                     <Text
@@ -117,6 +117,7 @@ function Third(props: any): JSX.Element {
                                         ? "2px solid #FF8C1E"
                                         : "none",
                                     borderRadius: "8px",
+                                    cursor:"pointer"
                                 }}
                                 position="relative">
                                 <img src={item.img} alt={`Image ${index}`} />

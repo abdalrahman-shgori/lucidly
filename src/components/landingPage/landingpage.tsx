@@ -3,9 +3,7 @@ import './landing.css';
 import Logo from "../../assets/images/logo.svg"
 import { Button, ChakraProvider, extendTheme, useDisclosure } from "@chakra-ui/react";
 import CustomModal from "../modal/modal";
-
 interface LandingProps { }
-
 const theme = extendTheme({
   colors: {
     custom: {
@@ -18,23 +16,15 @@ const theme = extendTheme({
 });
 
 const Landing: React.FC<LandingProps> = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure()
-  const [open, setOpen] = useState<boolean>(false)
-
-  const handleEditUser = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setOpen(!open)
-  };
+  const [open, setOpen] = useState<boolean>(false) 
   return (
     <ChakraProvider theme={theme}>
       <div className="bg">
         <div className="center">
           <img src={Logo} alt="Logo" />
-
           <CustomModal />
-
         </div>
       </div>
-
     </ChakraProvider>
   );
 }

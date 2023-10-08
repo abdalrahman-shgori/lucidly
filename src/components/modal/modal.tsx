@@ -10,7 +10,6 @@ import {
   Box,
   Text,
   Flex,
-  Select,
 } from '@chakra-ui/react';
 import Pen from "../../assets/images/PenIcon.svg"
 import { EditablePreview, useColorModeValue, IconButton, Input, useDisclosure, useEditableControls, ButtonGroup, SlideFade, Editable, Tooltip, EditableInput } from "@chakra-ui/react";
@@ -21,7 +20,6 @@ import { useToast } from '@chakra-ui/react'
 import Third from "./third";
 import Sumbitted from "./submitted";
 import Second from "./second";
-
 function CustomModal(): JSX.Element {
 
   function EditableControls(): JSX.Element {
@@ -46,7 +44,7 @@ function CustomModal(): JSX.Element {
         />
       </ButtonGroup>
     ) : (
-      <Flex justifyContent='end' position="absolute" top="36%" right="10%">
+      <Flex cursor="pointer" justifyContent='end' position="absolute" top="36%" right="10%">
         {/* <IconButton size='sm' icon={Pen} {...getEditButtonProps()} /> */}
         <img src={Pen} {...getEditButtonProps()}></img>
       </Flex>
@@ -69,19 +67,18 @@ function CustomModal(): JSX.Element {
       const newActiveIndices = [...prevActiveIndices];
       const lastActiveIndex = newActiveIndices.pop();
       if (lastActiveIndex !== undefined) {
-        const nextIndex = (lastActiveIndex - 1 + 3) % 3;  
+        const nextIndex = (lastActiveIndex - 1 + 3) % 3;
         if (!newActiveIndices.includes(nextIndex)) {
           newActiveIndices.push(nextIndex);
-        }  
+        }
         if (newActiveIndices.length > 3) {
           newActiveIndices.shift();
         }
       }
-  
+
       return newActiveIndices;
     });
   };
-  
   const handlerNext = (): void => {
     if (recoilState.name === "" && value === 0) {
       toast({
@@ -105,33 +102,24 @@ function CustomModal(): JSX.Element {
       })
 
     }
-
-
     else {
-      
       setValue(value + 1)
       const newActiveIndices = [...activeIndices];
-
       // Calculate the next index
       const lastActiveIndex = newActiveIndices[newActiveIndices.length - 1];
-      const nextIndex = (lastActiveIndex + 1) ;
+      const nextIndex = (lastActiveIndex + 1);
 
       // If the next index is not in the active indices, add it
       if (!newActiveIndices.includes(nextIndex)) {
         newActiveIndices.push(nextIndex);
       }
-
       // If there are more than 2 active indices, remove the first one
       if (newActiveIndices.length > 4) {
         newActiveIndices.shift();
       }
-
       // Update the state with the new active indices
       setActiveIndices(newActiveIndices)
-
     }
-
-
   }
   const handleModalClose = () => {
   };
@@ -142,7 +130,7 @@ function CustomModal(): JSX.Element {
     borderRadius: "50px",
   };
   const repeatCount = 3;
-  const boxes: JSX.Element[] = [];  for (let i = 0; i < repeatCount; i++) {
+  const boxes: JSX.Element[] = []; for (let i = 0; i < repeatCount; i++) {
     boxes.push(<Box key={i} style={boxStyles}></Box>);
   }
   console.log("data saved in the state managment", recoilState)
@@ -163,7 +151,7 @@ function CustomModal(): JSX.Element {
         <ModalOverlay />
         <ModalContent
           position="absolute"
-          minHeight={['512px','612px']}
+          minHeight={['512px', '612px']}
           maxWidth={['80%', '600px']}
         >
           {value === 0 && (
@@ -212,7 +200,6 @@ function CustomModal(): JSX.Element {
                 justifyContent="center"
                 alignItems="center"
               >
-                {/* Add your modal content here */}
                 <Text
                   fontSize="28px"
                   color="#434E61"
@@ -244,7 +231,6 @@ function CustomModal(): JSX.Element {
 
                     <EditablePreview />
 
-                    {/* Here is the custom input */}
                     <Input as={EditableInput} />
                     <EditableControls />
 
@@ -272,7 +258,7 @@ function CustomModal(): JSX.Element {
                   marginTop="20px"
 
 
-                  colorScheme="custom" // Use your custom color scheme
+                  colorScheme="custom"
                 >
                   Next
                 </Button>
