@@ -245,7 +245,7 @@ const EditNameAlert = (): void =>{
                   </Editable>
                 </Box>
                 <Text
-                  width="50%"
+                  width={["80%","50%"]}
                   fontSize="13px"
                   color="#262626"
                   fontFamily="Poppins"
