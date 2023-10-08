@@ -10,9 +10,10 @@ import {
   Box,
   Text,
   Flex,
+  EditableTextarea,
 } from '@chakra-ui/react';
 import Pen from "../../assets/images/PenIcon.svg"
-import { EditablePreview, useColorModeValue, IconButton, Input, useDisclosure, useEditableControls, ButtonGroup, SlideFade, Editable, Tooltip, EditableInput } from "@chakra-ui/react";
+import { EditablePreview, IconButton, Input, useDisclosure, useEditableControls, ButtonGroup, SlideFade, Editable, Tooltip, EditableInput } from "@chakra-ui/react";
 import { CheckIcon, CloseIcon } from "@chakra-ui/icons";
 import { useRecoilState } from 'recoil';
 import { myState } from '../../mystate';
@@ -20,8 +21,8 @@ import { useToast } from '@chakra-ui/react'
 import Third from "./interest";
 import Sumbitted from "./submitted";
 import Second from "./languageCountry";
+import { editableInputTypes } from "@testing-library/user-event/dist/utils";
 function CustomModal(): JSX.Element {
-
   function EditableControls(): JSX.Element {
     const {
       isEditing,
@@ -49,6 +50,7 @@ function CustomModal(): JSX.Element {
       </Flex>
     )
   }
+
   const toast = useToast()
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [recoilState, setRecoilState] = useRecoilState(myState);
@@ -60,6 +62,7 @@ function CustomModal(): JSX.Element {
       name: newValue,
     }));
   };
+ 
   const HandlerBack = (): void => {
     setValue((prevValue) => (prevValue - 1 + 3) % 3);
     setActiveIndices((prevActiveIndices) => {
@@ -122,6 +125,15 @@ function CustomModal(): JSX.Element {
   }
   const handleModalClose = () => {
   };
+
+const EditNameAlert = (): void =>{
+  toast({
+    title:"Please tab on pen figure to edit the name",
+    position: "top-left"
+
+  })
+}
+
   const boxStyles = {
     background: "#434E61",
     height: "5px",
@@ -132,6 +144,7 @@ function CustomModal(): JSX.Element {
   const boxes: JSX.Element[] = []; for (let i = 0; i < repeatCount; i++) {
     boxes.push(<Box key={i} style={boxStyles}></Box>);
   }
+
   console.log("data saved in the state managment", recoilState)
   return (
     <>
@@ -188,6 +201,7 @@ function CustomModal(): JSX.Element {
                     fontSize="14"
                     fontFamily="Poppins"
                     color="#B3B3B3"
+                    textShadow="0px 5px 5px rgba(38, 38, 38, 0.3)"
                   >
                     alice@wonderland.space
                   </Text>
@@ -225,18 +239,20 @@ function CustomModal(): JSX.Element {
                     position="relative"
                     onChange={handleNameChange}
                   >
-                    <EditablePreview />
+                    <EditablePreview onClick={EditNameAlert}/>
                     <Input as={EditableInput} />
                     <EditableControls />
                   </Editable>
                 </Box>
                 <Text
-                  width="70%"
+                  width="50%"
                   fontSize="13px"
                   color="#262626"
                   fontFamily="Poppins"
                   marginTop="20px"
                   textAlign="center"
+                  fontWeight="bold"
+                  textShadow="0px 5px 5px rgba(38, 38, 38, 0.5)"
                 >
                   Your answers to the next few questions will help us find the right communities for you
                 </Text>

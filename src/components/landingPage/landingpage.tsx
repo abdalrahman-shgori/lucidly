@@ -14,9 +14,7 @@ const theme = extendTheme({
     }
   },
 });
-
 const Landing: React.FC<LandingProps> = () => {
-  const [open, setOpen] = useState<boolean>(false)
   return (
     <ChakraProvider theme={theme}>
       <div className="bg">
