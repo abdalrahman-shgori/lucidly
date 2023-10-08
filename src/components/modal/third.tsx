@@ -102,7 +102,7 @@ function Third(props: any): JSX.Element {
                     gap="20px"
                     width={['100%', '80%']}
                 >
-                    <SimpleGrid columns={[3, 2, 4]} spacing={4}>
+                    <SimpleGrid columns={[3, 2, 4]} spacing={3}>
                         {img.map((item, index) => (
                             <GridItem
                                 key={item.id}
@@ -127,7 +127,7 @@ function Third(props: any): JSX.Element {
                                 <Text
                                     position="absolute"
                                     bottom="4px"
-                                    left="10px"
+                                    left={["5px","10px"]}
                                     color="#FFFFFF"
                                     fontSize="14px"
                                     fontFamily="montserrat"

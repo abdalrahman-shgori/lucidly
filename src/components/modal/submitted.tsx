@@ -46,12 +46,14 @@ function Sumbitted(props: any): JSX.Element {
                 flexDirection="column"
                 justifyContent="center"
                 alignItems="center"
+
             >
                 <Text
-                    fontSize="28px"
+                    fontSize={["24px","28px"]}
                     fontFamily="Montserrat"
                     color="#434E61"
                     fontWeight="bold"
+                    textAlign="center"
                 >
                     All inforamtion was submitted successfully
                 </Text>
