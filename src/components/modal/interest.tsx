@@ -22,7 +22,6 @@ import { myState } from "../../mystate";
 import { useToast } from '@chakra-ui/react'
 
 function Third(props: any): JSX.Element {
-
     const img = [
         { id: "0", img: innovation, text: "Innovation" },
         { id: "1", img: education, text: "Education" },
@@ -32,14 +31,10 @@ function Third(props: any): JSX.Element {
         { id: "5", img: tele, text: "Telemedicene" },
         { id: "6", img: relax, text: "Lorem Ipusm" },
         { id: "7", img: research, text: "Research" },
-
     ]
     const toast = useToast()
-
     const [selectedImages, setSelectedImages] = useState<string[]>([]);
     const [recoilState, setRecoilState] = useRecoilState(myState);
-
-
     const toggleImageSelection = (id: string) => {
         setRecoilState((prevRecoilState) => ({
             ...prevRecoilState,
@@ -73,7 +68,7 @@ function Third(props: any): JSX.Element {
             <ModalHeader
                 marginTop="40px"
                 position="relative"
-                top={["10px", "20px","30px"]}
+                top={["10px", "20px", "30px"]}
             >
                 <Box>
                     <Text

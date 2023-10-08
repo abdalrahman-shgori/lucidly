@@ -48,12 +48,12 @@ function CustomModal(): JSX.Element {
       </Flex>
     )
   }
-
   const toast = useToast()
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [recoilState, setRecoilState] = useRecoilState(myState);
   const [activeIndices, setActiveIndices] = useState<number[]>([0]);
   const [value, setValue] = useState<number>(0)
+
   const handleNameChange = (newValue: string): void => {
     setRecoilState((prevRecoilState) => ({
       ...prevRecoilState,
@@ -75,7 +75,6 @@ function CustomModal(): JSX.Element {
           newActiveIndices.shift();
         }
       }
-
       return newActiveIndices;
     });
   };
@@ -142,7 +141,6 @@ function CustomModal(): JSX.Element {
   const boxes: JSX.Element[] = []; for (let i = 0; i < repeatCount; i++) {
     boxes.push(<Box key={i} style={boxStyles}></Box>);
   }
-
   console.log("data saved in the state managment", recoilState)
   return (
     <>
