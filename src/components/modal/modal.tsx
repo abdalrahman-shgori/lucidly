@@ -108,6 +108,7 @@ function CustomModal(): JSX.Element {
 
 
     else {
+      
       setValue(value + 1)
       const newActiveIndices = [...activeIndices];
 
@@ -121,7 +122,7 @@ function CustomModal(): JSX.Element {
       }
 
       // If there are more than 2 active indices, remove the first one
-      if (newActiveIndices.length > 3) {
+      if (newActiveIndices.length > 4) {
         newActiveIndices.shift();
       }
 
@@ -162,8 +163,6 @@ function CustomModal(): JSX.Element {
         <ModalOverlay />
         <ModalContent
           position="absolute"
-          top="4%"
-          transform="translate(-50%, -50%)"
           minHeight="612px"
           maxWidth={['80%', '600px']}
         >
