@@ -164,6 +164,7 @@ function CustomModal(): JSX.Element {
         <ModalContent
           position="absolute"
           minHeight={['70%','612px']}
+          maxHeight={['70%','612px']}
           maxWidth={['80%', '600px']}
         >
           {value === 0 && (
