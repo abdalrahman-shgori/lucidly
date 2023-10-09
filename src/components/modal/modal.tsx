@@ -273,7 +273,7 @@ function CustomModal(): JSX.Element {
                   marginLeft="10px"
                   position="relative"
                   right="4px"
-                  bottom="30px"
+                  bottom={value === 0 ? "30px" : "0px"}
                 />
               ))}
             </>
