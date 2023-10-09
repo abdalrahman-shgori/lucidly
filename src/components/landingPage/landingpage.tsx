@@ -28,3 +28,5 @@ const Landing: React.FC<LandingProps> = () => {
 }
 
 export default Landing;
+
+

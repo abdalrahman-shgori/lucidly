@@ -21,33 +21,7 @@ import Third from "./interest";
 import Sumbitted from "./submitted";
 import Second from "./languageCountry";
 function CustomModal(): JSX.Element {
-  function EditableControls(): JSX.Element {
-    const {
-      isEditing,
-      getSubmitButtonProps,
-      getCancelButtonProps,
-      getEditButtonProps,
-    } = useEditableControls()
 
-    return isEditing ? (
-      <ButtonGroup justifyContent='center' size='sm'>
-        <IconButton
-          icon={<CheckIcon />}
-          aria-label="Submit"
-          {...getSubmitButtonProps()}
-        />
-        <IconButton
-          icon={<CloseIcon />}
-          aria-label="Cancel"
-          {...getCancelButtonProps()}
-        />
-      </ButtonGroup>
-    ) : (
-      <Flex cursor="pointer" justifyContent='end' position="absolute" top="36%" right="10%">
-        <img src={Pen} {...getEditButtonProps()}></img>
-      </Flex>
-    )
-  }
   const toast = useToast()
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [recoilState, setRecoilState] = useRecoilState(myState);
@@ -182,8 +156,6 @@ function CustomModal(): JSX.Element {
                     alignItems="center"
                     display="flex"
                     height="123px"
-
-
                   >
                     <Text
                       fontSize="50px"
@@ -208,6 +180,7 @@ function CustomModal(): JSX.Element {
                 flexDirection="column"
                 justifyContent="center"
                 alignItems="center"
+                marginBottom="40px"
               >
                 <Text
                   fontSize="28px"
@@ -222,23 +195,29 @@ function CustomModal(): JSX.Element {
                   width="244px"
                   borderRadius="8px"
                 >
+
                   <Editable
                     textAlign='center'
-                    defaultValue={recoilState.name || 'Name'}
+                    defaultValue={recoilState.name === "" ? "" : recoilState.name}
                     color="#FF8C1E"
                     fontSize='28px'
                     fontFamily="Roboto"
                     fontWeight="bold"
-                    isPreviewFocusable={false}
                     alignItems="center"
                     justifyContent="center"
                     position="relative"
+                    _hover={{ backgroundColor: 'transparent', cursor: 'default' }}
                     onChange={handleNameChange}
                   >
-                    <EditablePreview onClick={EditNameAlert} />
-                    <Input as={EditableInput} />
-                    <EditableControls />
+                    <EditablePreview width="100%" height="40px" />
+                    <Flex cursor="pointer" justifyContent='end' position="absolute" top="36%" right="10%">
+                      <img src={Pen}></img>
+                    </Flex>
+                    <EditableInput height="52.4px" _focus={{ boxShadow: 'none', borderColor: 'transparent' }}
+                    />
+
                   </Editable>
+
                 </Box>
                 <Text
                   width={["100%", "50%"]}
@@ -280,7 +259,6 @@ function CustomModal(): JSX.Element {
             display="flex"
             justifyContent="center"
             marginTop="50px"
-            marginBottom="10px"
           >
             <>
               {Array.from({ length: 3 }).map((_, index) => (
@@ -295,6 +273,7 @@ function CustomModal(): JSX.Element {
                   marginLeft="10px"
                   position="relative"
                   right="4px"
+                  bottom="30px"
                 />
               ))}
             </>
