@@ -1,19 +1,15 @@
-.bg{
-    background:#434E61;
+.bg {
+    background: #434E61;
     height: 100vh;
 }
 
-.center{
-height: 100vh;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center !important;
-gap: 60px;
-}
-.modalText{
+.center {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center !important;
+    gap: 60px;
+    overflow-y: auto;
 
 }
-
-
-

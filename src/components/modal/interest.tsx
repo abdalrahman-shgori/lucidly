@@ -22,24 +22,19 @@ import { myState } from "../../mystate";
 import { useToast } from '@chakra-ui/react'
 
 function Third(props: any): JSX.Element {
-
     const img = [
-        { id: "0", img: innovation, text: "meicie" },
-        { id: "1", img: education, text: "meicie" },
-        { id: "2", img: medicine, text: "meicie" },
-        { id: "3", img: pharamtech, text: "meicie" },
-        { id: "4", img: technology, text: "meicie" },
-        { id: "5", img: tele, text: "meicie" },
-        { id: "6", img: relax, text: "meicie" },
-        { id: "7", img: research, text: "meicie" },
-
+        { id: "0", img: innovation, text: "Innovation" },
+        { id: "1", img: education, text: "Education" },
+        { id: "2", img: medicine, text: "Midicine" },
+        { id: "3", img: pharamtech, text: "Pharmatech" },
+        { id: "4", img: technology, text: "Technology" },
+        { id: "5", img: tele, text: "Telemedicene" },
+        { id: "6", img: relax, text: "Lorem Ipusm" },
+        { id: "7", img: research, text: "Research" },
     ]
     const toast = useToast()
-
     const [selectedImages, setSelectedImages] = useState<string[]>([]);
     const [recoilState, setRecoilState] = useRecoilState(myState);
-
-
     const toggleImageSelection = (id: string) => {
         setRecoilState((prevRecoilState) => ({
             ...prevRecoilState,
@@ -57,7 +52,6 @@ function Third(props: any): JSX.Element {
     };
     const Next = (): void => {
         if (isPickButtonDisabled) {
-            alert("")
             toast({
                 title: "Select 3 or more ",
                 status: "error",
@@ -73,6 +67,8 @@ function Third(props: any): JSX.Element {
         <>
             <ModalHeader
                 marginTop="40px"
+                position="relative"
+                top={["10px", "20px", "30px"]}
             >
                 <Box>
                     <Text
@@ -83,6 +79,7 @@ function Third(props: any): JSX.Element {
                         display="flex"
                         justifyContent="center"
                         align="center"
+                        lineHeight="30px"
                         textAlign="center"
                     >
                         Tell us what you’re <br /> interested in
@@ -94,6 +91,7 @@ function Third(props: any): JSX.Element {
                 flexDirection="column"
                 justifyContent="center"
                 alignItems="center"
+                marginBottom="20px"
             >
                 <Box
                     display="flex"
@@ -101,9 +99,10 @@ function Third(props: any): JSX.Element {
                     justifyContent="center"
                     alignItems="center"
                     gap="20px"
-                    width={['100%', '80%']}
+                    width={['100%', '100%']}
+                    marginBottom="20px"
                 >
-                    <SimpleGrid columns={[2, 2, 4]} spacing={4}>
+                    <SimpleGrid columns={[3, 3, 4]} spacing={3}>
                         {img.map((item, index) => (
                             <GridItem
                                 key={item.id}
@@ -113,6 +112,7 @@ function Third(props: any): JSX.Element {
                                         ? "2px solid #FF8C1E"
                                         : "none",
                                     borderRadius: "8px",
+                                    cursor: "pointer"
                                 }}
                                 position="relative">
                                 <img src={item.img} alt={`Image ${index}`} />
@@ -128,7 +128,7 @@ function Third(props: any): JSX.Element {
                                 <Text
                                     position="absolute"
                                     bottom="4px"
-                                    left="10px"
+                                    left={["5px", "10px"]}
                                     color="#FFFFFF"
                                     fontSize="14px"
                                     fontFamily="montserrat"
@@ -141,40 +141,46 @@ function Third(props: any): JSX.Element {
 
             </ModalBody>
             <Box
-                width="100%"
-                display="flex"
-                flexDirection="column"
-                justifyContent="center"
-                alignItems="center"
-
+                position="relative"
             >
-                <Button
-                    onClick={Next}
-                    fontSize="14px"
-                    width="244px"
-                    height="41px"
-                    marginTop="20px"
+                <Box
+                    width="100%"
                     display="flex"
+                    flexDirection="column"
                     justifyContent="center"
                     alignItems="center"
-                    cursor={isPickButtonDisabled ? "not-allowed" : "pointer"}
-                    colorScheme={isPickButtonDisabled ? "disapled" : "custom"}
-                    disabled={isPickButtonDisabled}
+                    position="absolute"
+                    bottom="-60px"
 
                 >
-                    {isPickButtonDisabled ? "Pick 3 more" : "Submit"}
-                </Button>
-                <Button
-                    onClick={props.Back}
+                    <Button
+                        onClick={Next}
+                        fontSize="14px"
+                        width="244px"
+                        height="41px"
+                        marginTop="20px"
+                        display="flex"
+                        justifyContent="center"
+                        alignItems="center"
+                        cursor={isPickButtonDisabled ? "not-allowed" : "pointer"}
+                        colorScheme={isPickButtonDisabled ? "disapled" : "custom"}
+                        disabled={isPickButtonDisabled}
 
-                    background="transparent"
-                    fontSize="10px"
-                    fontFamily="Montserrat"
-                    _hover={{ background: 'transparent', color: 'inherit' }}
+                    >
+                        {isPickButtonDisabled ? "Pick 3 more" : "Submit"}
+                    </Button>
+                    <Button
+                        onClick={props.Back}
 
-                >
-                    Back
-                </Button>
+                        background="transparent"
+                        fontSize="10px"
+                        fontFamily="Montserrat"
+                        _hover={{ background: 'transparent', color: 'inherit' }}
+
+                    >
+                        Back
+                    </Button>
+                </Box>
             </Box>
         </>
     )

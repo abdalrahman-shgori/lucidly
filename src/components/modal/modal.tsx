@@ -10,82 +10,52 @@ import {
   Box,
   Text,
   Flex,
-  Select,
 } from '@chakra-ui/react';
 import Pen from "../../assets/images/PenIcon.svg"
-import { EditablePreview, useColorModeValue, IconButton, Input, useDisclosure, useEditableControls, ButtonGroup, SlideFade, Editable, Tooltip, EditableInput } from "@chakra-ui/react";
+import { EditablePreview, IconButton, Input, useDisclosure, useEditableControls, ButtonGroup, SlideFade, Editable, Tooltip, EditableInput } from "@chakra-ui/react";
 import { CheckIcon, CloseIcon } from "@chakra-ui/icons";
 import { useRecoilState } from 'recoil';
 import { myState } from '../../mystate';
 import { useToast } from '@chakra-ui/react'
-import Third from "./third";
+import Third from "./interest";
 import Sumbitted from "./submitted";
-import Second from "./second";
-
+import Second from "./languageCountry";
 function CustomModal(): JSX.Element {
 
-  function EditableControls(): JSX.Element {
-    const {
-      isEditing,
-      getSubmitButtonProps,
-      getCancelButtonProps,
-      getEditButtonProps,
-    } = useEditableControls()
-
-    return isEditing ? (
-      <ButtonGroup justifyContent='center' size='sm'>
-        <IconButton
-          icon={<CheckIcon />}
-          aria-label="Submit" // Provide an appropriate label here
-          {...getSubmitButtonProps()}
-        />
-        <IconButton
-          icon={<CloseIcon />}
-          aria-label="Cancel" // Provide an appropriate label here
-          {...getCancelButtonProps()}
-        />
-      </ButtonGroup>
-    ) : (
-      <Flex justifyContent='end' position="absolute" top="36%" right="10%">
-        {/* <IconButton size='sm' icon={Pen} {...getEditButtonProps()} /> */}
-        <img src={Pen} {...getEditButtonProps()}></img>
-      </Flex>
-    )
-  }
   const toast = useToast()
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [recoilState, setRecoilState] = useRecoilState(myState);
   const [activeIndices, setActiveIndices] = useState<number[]>([0]);
   const [value, setValue] = useState<number>(0)
+
   const handleNameChange = (newValue: string): void => {
     setRecoilState((prevRecoilState) => ({
       ...prevRecoilState,
       name: newValue,
     }));
   };
+
   const HandlerBack = (): void => {
     setValue((prevValue) => (prevValue - 1 + 3) % 3);
     setActiveIndices((prevActiveIndices) => {
       const newActiveIndices = [...prevActiveIndices];
       const lastActiveIndex = newActiveIndices.pop();
       if (lastActiveIndex !== undefined) {
-        const nextIndex = (lastActiveIndex - 1 + 3) % 3;  
+        const nextIndex = (lastActiveIndex - 1 + 3) % 3;
         if (!newActiveIndices.includes(nextIndex)) {
           newActiveIndices.push(nextIndex);
-        }  
+        }
         if (newActiveIndices.length > 3) {
           newActiveIndices.shift();
         }
       }
-  
       return newActiveIndices;
     });
   };
-  
   const handlerNext = (): void => {
     if (recoilState.name === "" && value === 0) {
       toast({
-        title: "please Select Name",
+        title: "Please inter your Name",
         status: "error",
         position: "top-right"
       })
@@ -105,35 +75,36 @@ function CustomModal(): JSX.Element {
       })
 
     }
-
-
     else {
       setValue(value + 1)
       const newActiveIndices = [...activeIndices];
-
       // Calculate the next index
       const lastActiveIndex = newActiveIndices[newActiveIndices.length - 1];
-      const nextIndex = (lastActiveIndex + 1) ;
+      const nextIndex = (lastActiveIndex + 1);
 
       // If the next index is not in the active indices, add it
       if (!newActiveIndices.includes(nextIndex)) {
         newActiveIndices.push(nextIndex);
       }
-
       // If there are more than 2 active indices, remove the first one
-      if (newActiveIndices.length > 3) {
+      if (newActiveIndices.length > 4) {
         newActiveIndices.shift();
       }
-
       // Update the state with the new active indices
       setActiveIndices(newActiveIndices)
-
     }
-
-
   }
   const handleModalClose = () => {
   };
+
+  const EditNameAlert = (): void => {
+    toast({
+      title: "Please tab on pen figure to edit the name",
+      position: "top-left"
+
+    })
+  }
+
   const boxStyles = {
     background: "#434E61",
     height: "5px",
@@ -141,7 +112,7 @@ function CustomModal(): JSX.Element {
     borderRadius: "50px",
   };
   const repeatCount = 3;
-  const boxes: JSX.Element[] = [];  for (let i = 0; i < repeatCount; i++) {
+  const boxes: JSX.Element[] = []; for (let i = 0; i < repeatCount; i++) {
     boxes.push(<Box key={i} style={boxStyles}></Box>);
   }
   console.log("data saved in the state managment", recoilState)
@@ -162,10 +133,8 @@ function CustomModal(): JSX.Element {
         <ModalOverlay />
         <ModalContent
           position="absolute"
-          top="4%"
-          transform="translate(-50%, -50%)"
-          minHeight="612px"
-          maxWidth={['80%', '600px']}
+          minHeight={['512px', '612px']}
+          maxWidth={['80%', '80%', '600px']}
         >
           {value === 0 && (
             <>
@@ -187,8 +156,6 @@ function CustomModal(): JSX.Element {
                     alignItems="center"
                     display="flex"
                     height="123px"
-
-
                   >
                     <Text
                       fontSize="50px"
@@ -202,6 +169,7 @@ function CustomModal(): JSX.Element {
                     fontSize="14"
                     fontFamily="Poppins"
                     color="#B3B3B3"
+                    textShadow="0px 5px 5px rgba(38, 38, 38, 0.3)"
                   >
                     alice@wonderland.space
                   </Text>
@@ -212,8 +180,8 @@ function CustomModal(): JSX.Element {
                 flexDirection="column"
                 justifyContent="center"
                 alignItems="center"
+                marginBottom="40px"
               >
-                {/* Add your modal content here */}
                 <Text
                   fontSize="28px"
                   color="#434E61"
@@ -227,59 +195,53 @@ function CustomModal(): JSX.Element {
                   width="244px"
                   borderRadius="8px"
                 >
+
                   <Editable
                     textAlign='center'
-                    defaultValue={recoilState.name || 'Name'}
+                    defaultValue={recoilState.name === "" ? "" : recoilState.name}
                     color="#FF8C1E"
                     fontSize='28px'
                     fontFamily="Roboto"
                     fontWeight="bold"
-                    isPreviewFocusable={false}
                     alignItems="center"
                     justifyContent="center"
                     position="relative"
+                    _hover={{ backgroundColor: 'transparent', cursor: 'default' }}
                     onChange={handleNameChange}
-
-
                   >
-
-                    <EditablePreview />
-
-                    {/* Here is the custom input */}
-                    <Input as={EditableInput} />
-                    <EditableControls />
+                    <EditablePreview width="100%" height="40px" />
+                    <Flex cursor="pointer" justifyContent='end' position="absolute" top="36%" right="10%">
+                      <img src={Pen}></img>
+                    </Flex>
+                    <EditableInput height="52.4px" _focus={{ boxShadow: 'none', borderColor: 'transparent' }}
+                    />
 
                   </Editable>
 
-
                 </Box>
                 <Text
-                  width="70%"
+                  width={["100%", "50%"]}
                   fontSize="13px"
                   color="#262626"
                   fontFamily="Poppins"
                   marginTop="20px"
                   textAlign="center"
+                  fontWeight="bold"
+                  textShadow="0px 5px 5px rgba(38, 38, 38, 0.5)"
                 >
                   Your answers to the next few questions will help us find the right communities for you
                 </Text>
-
                 <Button
-
                   onClick={handlerNext}
                   fontSize="14px"
                   width="244px"
                   height="41px"
                   marginTop="20px"
-
-
-                  colorScheme="custom" // Use your custom color scheme
+                  colorScheme="custom"
                 >
                   Next
                 </Button>
               </ModalBody>
-
-
             </>
           )}
           {value === 1 && (
@@ -297,7 +259,6 @@ function CustomModal(): JSX.Element {
             display="flex"
             justifyContent="center"
             marginTop="50px"
-            marginBottom="10px"
           >
             <>
               {Array.from({ length: 3 }).map((_, index) => (
@@ -310,6 +271,9 @@ function CustomModal(): JSX.Element {
                   width="5px"
                   borderRadius="50px"
                   marginLeft="10px"
+                  position="relative"
+                  right="4px"
+                  bottom={value === 0 ? "30px" : "0px"}
                 />
               ))}
             </>
