@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/lucidly/static/css/main.40c52332.css",
+    "main.js": "/lucidly/static/js/main.8152204f.js",
+    "static/media/education.svg": "/lucidly/static/media/education.be19374d5e6b28ea952c193ccba1ad80.svg",
+    "static/media/technology.svg": "/lucidly/static/media/technology.69f37b6581d2256c8dd90e7268298753.svg",
+    "static/media/pharmtech.svg": "/lucidly/static/media/pharmtech.1e8ea838acbe0aa6defae7e5e74a6756.svg",
+    "static/media/Research.svg": "/lucidly/static/media/Research.1e4b092f2a7dc72c7cb0d4f696b44c2d.svg",
+    "static/media/tele.svg": "/lucidly/static/media/tele.8f512f7451d983c28bc2259664191ab9.svg",
+    "static/media/relax.svg": "/lucidly/static/media/relax.0796a687716317f3dac4392bb6f73e41.svg",
+    "static/media/innovation.svg": "/lucidly/static/media/innovation.5e1841f7b080ceeb5a14ad7c2da2c070.svg",
+    "static/media/medicine.svg": "/lucidly/static/media/medicine.f7ce42da855a7181615a44536488093d.svg",
+    "static/media/logo.svg": "/lucidly/static/media/logo.b262a36d63451630cbd925b7d47c5c1e.svg",
+    "index.html": "/lucidly/index.html",
+    "static/media/PenIcon.svg": "/lucidly/static/media/PenIcon.918eaa3c23cb3faf400d920fc84893ab.svg",
+    "static/media/true.svg": "/lucidly/static/media/true.388abdc5479198131382d1b7c0cf1b7d.svg",
+    "main.40c52332.css.map": "/lucidly/static/css/main.40c52332.css.map",
+    "main.8152204f.js.map": "/lucidly/static/js/main.8152204f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.40c52332.css",
+    "static/js/main.8152204f.js"
+  ]
+}
